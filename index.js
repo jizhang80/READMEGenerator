@@ -82,11 +82,9 @@ function init() {
     inquirer
     .prompt(questions)
     .then((answers)=>{
-        console.log(answers);
         return generateMarkdown(answers);
     })
     .then((data)=>{
-        console.log(data);
         writeToFile('made_README.md', data);
     })
     .catch((error) => console.error(error));
