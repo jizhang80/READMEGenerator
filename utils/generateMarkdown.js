@@ -78,7 +78,7 @@ function renderLicenseSection(license) {
 // if there is no github username, return an empty string
 function renderReposLinkSection(username) {
   if (!username) return '';
-  return `## ${username} Repositories
+  return `### ${username} Repositories
   [${username} repos link](https://github.com/${username}?tab=repositories)  
   `
 }
@@ -87,7 +87,7 @@ function renderReposLinkSection(username) {
 // if there is no email, return an empty string
 function renderReachmeSection(email) {
   if (!email) return '';
-  return `## Reach me
+  return `### Reach me
   You may reach me by email: <${email}> if there is any more question.
   `
 }
@@ -96,29 +96,48 @@ function renderReachmeSection(email) {
 /*
 README sections:
 1. title
-2. license
-3. Description
-4. Installation: installation instructions
-5. Usage: usage information
-6. Contributing: contribution guidelines
-7. Tests: test instructions
-8. github username & repos link
-9. reach me by email address
+2. Description
+3. Table of Contents
+4. Installation
+5. Usage
+6. license
+7. Contributing
+8. Tests
+9. Questions
+    github username & repos link
+    reach me by email address
 */
 function generateMarkdown(data) {
   return `# ${data.title}  
-  ${renderLicenseSection(data.license)}  
+
   ## Description  
   ${data.description}  
+  
+  ## Table of Contents  
+  - [Description](#description)  
+  - [Installation](#installation)  
+  - [Usage](#usage)  
+  - [License](#license)  
+  - [Contributing](#contributing)  
+  - [Tests](#tests)  
+  - [Questions](#questions)  
+
   ## Installation  
   ${data.installation}  
+
   ## Usage  
   ${data.usage}  
+
+  ## License
+  ${renderLicenseSection(data.license)}  
+
   ## Contributing  
   ${data.contribution}  
+
   ## Tests  
   ${data.tests}  
 
+  ## Questions
   ${renderReposLinkSection(data.username)}  
   ${renderReachmeSection(data.email)}  
   
