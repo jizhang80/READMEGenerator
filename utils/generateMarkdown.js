@@ -88,7 +88,7 @@ function renderReposLinkSection(username) {
 function renderReachmeSection(email) {
   if (!email) return '';
   return `## Reach me
-  You may send me the [email]
+  You may reach me by email: <${email}> if there is any more question.
   `
 }
 
